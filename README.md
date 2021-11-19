@@ -1,18 +1,19 @@
-# Space Invaders
+# CHECKERS
 ***
 ## By: Katie Vermazani
 ### 11/17/21
+#### [Trello](https://trello.com/b/5mLE3z8Q/project-1)
 
 ***
 ## How It Works
 ***
-#### You are a space ranger, protecting the earth from invaders. Enter the invaders...
+#### There are two players: black and red. 
 
-Use your arrow keys to move side to side. 
-Use your space bars to launch orbs at the invaders to disintigrate them.
-Disintigrate the invaders to earn points.
+Rules: 
+* each player can only move in one 1 square per turn
+* 
 
-#### GOAL: get the high score!
+#### GOAL: remove all of your opponents pieces from the board.
 
 ***
 ## How To Get It
