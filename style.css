@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Zen+Antique+Soft&display=swap');
 body {
-    background-color: rgb(53, 54, 54);
+    background-color: rgb(61, 61, 61);
 
 }
 
@@ -18,7 +18,7 @@ h1 {
 .board {
     display: flex;
     flex-flow: row wrap;
-    background-color: black;
+    background-color: white;
     margin: auto;
     height: 720px;
     width: 720px;
@@ -28,56 +28,56 @@ h1 {
     background-color:white;
     height: 88px;
     width: 88px;
-    border: 1px solid black;
 }
 
 .dark-square {
     background-color: rgb(233, 224, 224);
     height: 88px;
     width: 88px;
-    border: 1px solid black;
 }
 
 .red {
     background-color: rgb(247, 4, 4);
     height: 88px;
     width: 88px;
-    border: 1px solid black;
+    border: 1px solid white;
+    border-radius: 50px;
 }
 
 .black {
     background-color:black;
     height: 88px;
     width: 88px;
-    border: 1px solid black;
+    border: 1px solid white;
+    border-radius: 50px;
 }
 
 .active-red{
-    background-color: rgb(95, 3, 3);
+    background-color: rgb(170, 34, 34);
     height: 86px;
     width: 86px;
-    border: 2px solid black;
+    border: 3px solid black;
 }
 
 .active-black{
-    background-color:rgb(43, 42, 42);
+    background-color:rgb(66, 65, 65);
     height: 86px;
     width: 86px;
-    border: 2px solid black;
+    border: 3px solid rgb(0, 0, 0);
 }
 
 .king-red {
-    background-color: rgb(182, 6, 6);
+    background-color: rgb(197, 27, 27);
     height: 86px;
     width: 86px;
-    border: 2px solid white;
+    border: 2px solid rgb(0, 0, 0);
 }
 
 .king-black {
-    background-color:rgb(43, 42, 42);
+    background-color:rgb(78, 76, 76);
     height: 86px;
     width: 86px;
-    border: 2px solid white;
+    border: 2px solid black;
 }
 
 .possibilities {
