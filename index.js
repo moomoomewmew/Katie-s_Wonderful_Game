@@ -1,7 +1,8 @@
 /*==============variables================*/
 const allSquares = document.querySelectorAll('.light-square')
-let player = 'red'
-/*==============to start the game===============*/
+let activePlayer
+let player = 'red-player'
+/*==============This sets up the board===============*/
 for (let i = 0; i < 12; i++) {
     allSquares[i].classList.add('black')
 }
@@ -11,6 +12,8 @@ for (let i = 20; i < allSquares.length; i++) {
 
 let reds = document.querySelectorAll('.red')
 let blacks = document.querySelectorAll('.black')
+
+
 /*==============to switch turns================*/
 // const changeClass = (e) => {
 //     console.log(e.currentTarget.id)
@@ -22,34 +25,62 @@ let blacks = document.querySelectorAll('.black')
 // }
 
 /*===============to make a move=================*/
-//click event on red squares to change click event to listen for a white tile to be clicked and change class of red tile and white tile
 
-/*===============red move=================*/
-const redMove = (e) => {
-    console.log(e.currentTarget)
-    e.currentTarget.classList.add(`active-red`) 
-  }
+if (player === 'red-player') {
+    const reSelectRed = (e) => {
+        const activeRed= document.querySelector('.active-red')
+        activeRed.classList.remove('active-red')
+    }
+    for (let i = 0; i < reds.length; i++) {
+        reds[i].addEventListener('click', reSelectRed)
+    }
+    const selectRed = (e) => {
+        e.currentTarget.classList.add('active-red') 
+        player = 'active-red-player'
+    }
+    for (let i = 0; i < reds.length; i++) {
+        reds[i].addEventListener('click', selectRed)
+    } 
 
-for (let i = 0; i < reds.length; i++) {
-    reds[i].addEventListener('click', redMove)
+} else if (player === 'black-player'){
+    const reSelectBlack = (e) => {
+        const activeBlack= document.querySelector('.active-black')
+        activeBlack.classList.remove('active-black')
+    }
+    for (let i = 0; i < blacks.length; i++) {
+        blacks[i].addEventListener('click', reSelectBlack)
+    }
+    
+    const selectBlack = (e) => {
+        e.currentTarget.classList.add(`active-black`) 
+    }
+    for (let i = 0; i < blacks.length; i++) {
+        blacks[i].addEventListener('click', selectBlack)
+    }
 }
 
-const unSelectLastSelection = (e) => {
-    const activeRed = document.querySelector('.active-red')
-    activeRed.classList.remove('active-red')
-}
-
-/*===============black move=================*/
-const blackMove = (e) => {
-    console.log(e.currentTarget)
-    e.currentTarget.classList.add(`active-black`) 
-  }
-
-for (let i = 0; i < blacks.length; i++) {
-    blacks[i].addEventListener('click', blackMove)
-}
-
-
-// for (let i = currentTarget; i = -3, -4; i++) {
-//     allSquares[i].classList.add('possibilities')
+// if (player === 'active-red-player'){
+//     const moveRed = (e) => {
+//         const activeRed= document.querySelector('.active-red')
+//         activeRed.classList.remove('active-red', 'red')
+//         e.currentTarget.classList.add('red')
+//     }
+//     for (let i = 0; i < reds.length; i++) {
+//         reds[i].addEventListener('click', moveRed)
+//     }
 // }
+
+
+
+
+
+
+
+
+// if (player === '.active-red-player') {
+//     const moveRedPiece = (e) => {
+//         // e.currentTarget.classList.add('reds')
+//         // console.log(e.currentTarget)
+//         // 
+//         // console.log(e.currentTarget)
+
