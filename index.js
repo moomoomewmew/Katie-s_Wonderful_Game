@@ -1,3 +1,4 @@
+/////
 /*==============variables================*/
 const allSquares = document.querySelectorAll('.light-square')
 let red = document.querySelectorAll('.red')
