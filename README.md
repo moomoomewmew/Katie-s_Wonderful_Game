@@ -9,13 +9,13 @@
 ***
 #### There are two players: black and red. 
 
-Rules: 
+#### Rules: 
 * Red starts the game
 * Each player can move 1 square diagonally left or right
-*jump over your opponents checkers to remove them from the board.
-*the first player to the other side wins!
+* Jump over your opponents checkers to remove them from the board.
+* The first player to the other side wins!
 
-#### GOAL: remove all of your opponents pieces from the board.
+#### GOAL: Get to the other side of the board.
 
 ***
 ## How To Get It
