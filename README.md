@@ -10,8 +10,10 @@
 #### There are two players: black and red. 
 
 Rules: 
-* each player can only move in one 1 square per turn
-* 
+* Red starts the game
+* Each player can move 1 square diagonally left or right
+*jump over your opponents checkers to remove them from the board.
+*the first player to the other side wins!
 
 #### GOAL: remove all of your opponents pieces from the board.
 
@@ -25,3 +27,9 @@ Rules:
 ***
 ## Credits
 ***
+
+Zee Moss
+Daniel Connelly
+Marvel
+Christopher Bowers
+Ben Manning 
