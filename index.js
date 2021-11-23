@@ -27,7 +27,9 @@ const reSelectRed = (e) => {
     const activeRed = document.querySelector('.active-red')
     if (activeRed !== null) {
         activeRed.classList.remove('active-red')
-        allSquares.classList.remove('possibilities')
+        for (i = 0; i < allSquares.length; i++) {
+            allSquares[i].classList.remove('possibilities')
+        }
         console.log(player) 
     }
 }
