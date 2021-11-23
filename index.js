@@ -47,6 +47,11 @@ const moveRed = (e) => {
         allSquares.forEach((square) => {
             square.classList.remove('possibilities')
         })
+        
+        if (!diagonallyAdjacent(activeRed, e.target)) {
+            console.log('take checker')
+            takeJumped(activeRed, e.target)
+        }
     } 
 }
 
@@ -64,6 +69,32 @@ const reSelectBlack = (e) => {
     }
 }
 
+const diagonallyAdjacent = (element1, element2) => {
+    const row1 = element1.id[0];
+    const row2 = element2.id[0];
+    const col1 = parseInt(element1.id[1])
+    const col2 = parseInt(element2.id[1])
+    const colDist = Math.abs(col1 - col2)
+    const rowDist = Math.abs(row1.charCodeAt(0) - row2.charCodeAt(0))
+    console.log(row1, row2, col1, col2, colDist, rowDist)
+    return rowDist === 1 && colDist === 1
+}
+
+const takeJumped = (element1, element2) => {
+    const row1 = element1.id[0].charCodeAt(0);
+    const row3 = element2.id[0].charCodeAt(0);
+    const col1 = parseInt(element1.id[1])
+    const col3 = parseInt(element2.id[1])
+
+    const row2 = (row1 > row3) ? row1-1 : row1+1;
+    const col2 = (col1 > col3) ? col1-1 : col1+1;
+    const jumpedId = `${String.fromCharCode(row2)}${col2}`
+    const jumped = allSquares.find(element => element.id === jumpedId)
+    console.log('jumped:', row2, col2, jumped, jumpedId)
+    jumped.classList.remove('black')
+    jumped.classList.remove('red')
+}
+
 const moveBlack = (e) => {
     console.log(e.target.classList)
     const activeBlack = document.querySelector('.active-black')
@@ -72,13 +103,18 @@ const moveBlack = (e) => {
     }   else if (e.target.classList.contains('possibilities')) {
         activeBlack.classList.remove('black')
         activeBlack.classList.remove('active-black')
-            e.target.classList.add('black')
-            player = 'red-player'
-            console.log(player)
-            allSquares.forEach((square) => {
-                square.classList.remove('possibilities')
-            })
-        }    
+        e.target.classList.add('black')
+        player = 'red-player'
+        console.log(player)
+        allSquares.forEach((square) => {
+            square.classList.remove('possibilities')
+        })
+    
+        if (!diagonallyAdjacent(activeBlack, e.target)) {
+            console.log('take checker')
+            takeJumped(activeBlack, e.target)
+        }
+    }
 }
 
 const markIfUnoccupied = (element) => {
