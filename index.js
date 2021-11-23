@@ -143,26 +143,51 @@ const movementLimitationsBlack = (activeBlack => {
               let left = column - 1
               let right = column + 1
             switch (row) {
-                case 'a':
-                    if (column > 1)markIfUnoccupied(allSquares.find(x => x.id === `b${left}`)) 
-                    if (column < 8)markIfUnoccupied(allSquares.find(x => x.id === `b${right}`))
+                case 'a': {
+                    let leftDiagonal = allSquares.find(x => x.id === `b${left}`)
+                    let rightDiagonal = allSquares.find(x => x.id === `b${right}`)
+                    if (column > 1)markIfUnoccupied(leftDiagonal)
+                    if (column < 8)markIfUnoccupied(rightDiagonal)
+                    if (column > 2 && occupied(leftDiagonal)) markIfUnoccupied(allSquares.find(x => x.id === `c${left-1}`))
+                    if (column < 7 && occupied(rightDiagonal)) markIfUnoccupied(allSquares.find(x => x.id === `c${right+1}`))
                     break
-                case 'b':
-                    if (column > 1)markIfUnoccupied(allSquares.find(x => x.id === `c${left}`)) 
-                    if (column < 8)markIfUnoccupied(allSquares.find(x => x.id === `c${right}`))
+                }
+                case 'b':{
+                    let leftDiagonal = allSquares.find(x => x.id === `c${left}`)
+                    let rightDiagonal = allSquares.find(x => x.id === `c${right}`)
+                    if (column > 1)markIfUnoccupied(leftDiagonal)
+                    if (column < 8)markIfUnoccupied(rightDiagonal)
+                    if (column > 2 && occupied(leftDiagonal)) markIfUnoccupied(allSquares.find(x => x.id === `d${left-1}`))
+                    if (column < 7 && occupied(rightDiagonal)) markIfUnoccupied(allSquares.find(x => x.id === `d${right+1}`))
                     break
-                case 'c':
-                    if (column > 1)markIfUnoccupied(allSquares.find(x => x.id === `d${left}`)) 
-                    if (column < 8)markIfUnoccupied(allSquares.find(x => x.id === `d${right}`))
+                }
+                case 'c': {
+                    let leftDiagonal = allSquares.find(x => x.id === `d${left}`)
+                    let rightDiagonal = allSquares.find(x => x.id === `d${right}`)
+                    if (column > 1)markIfUnoccupied(leftDiagonal)
+                    if (column < 8)markIfUnoccupied(rightDiagonal)
+                    if (column > 2 && occupied(leftDiagonal)) markIfUnoccupied(allSquares.find(x => x.id === `e${left-1}`))
+                    if (column < 7 && occupied(rightDiagonal)) markIfUnoccupied(allSquares.find(x => x.id === `e${right+1}`))
                     break
-                case 'd':
-                    if (column > 1)markIfUnoccupied(allSquares.find(x => x.id === `e${left}`)) 
-                    if (column < 8)markIfUnoccupied(allSquares.find(x => x.id === `e${right}`))
+                }
+                case 'd':{
+                    let leftDiagonal = allSquares.find(x => x.id === `e${left}`)
+                    let rightDiagonal = allSquares.find(x => x.id === `e${right}`)
+                    if (column > 1)markIfUnoccupied(leftDiagonal)
+                    if (column < 8)markIfUnoccupied(rightDiagonal)
+                    if (column > 2 && occupied(leftDiagonal)) markIfUnoccupied(allSquares.find(x => x.id === `f${left-1}`))
+                    if (column < 7 && occupied(rightDiagonal)) markIfUnoccupied(allSquares.find(x => x.id === `f${right+1}`))
                     break
-                case 'e':
-                    if (column > 1)markIfUnoccupied(allSquares.find(x => x.id === `f${left}`)) 
-                    if (column < 8)markIfUnoccupied(allSquares.find(x => x.id === `f${right}`))
+                }
+                case 'e':{
+                    let leftDiagonal = allSquares.find(x => x.id === `f${left}`)
+                    let rightDiagonal = allSquares.find(x => x.id === `f${right}`)
+                    if (column > 1)markIfUnoccupied(leftDiagonal)
+                    if (column < 8)markIfUnoccupied(rightDiagonal)
+                    if (column > 2 && occupied(leftDiagonal)) markIfUnoccupied(allSquares.find(x => x.id === `g${left-1}`))
+                    if (column < 7 && occupied(rightDiagonal)) markIfUnoccupied(allSquares.find(x => x.id === `g${right+1}`))
                     break
+                }
                 case 'f': {
                     let leftDiagonal = allSquares.find(x => x.id === `g${left}`)
                     let rightDiagonal = allSquares.find(x => x.id === `g${right}`)
@@ -170,13 +195,13 @@ const movementLimitationsBlack = (activeBlack => {
                     if (column < 8)markIfUnoccupied(rightDiagonal)
                     if (column > 2 && occupied(leftDiagonal)) markIfUnoccupied(allSquares.find(x => x.id === `h${left-1}`))
                     if (column < 7 && occupied(rightDiagonal)) markIfUnoccupied(allSquares.find(x => x.id === `h${right+1}`))
-                    console.log('still working!!')
                     break
                 }
-                case 'g':
+                case 'g':{
                     if (column > 1)markIfUnoccupied(allSquares.find(x => x.id === `h${left}`)) 
                     if (column < 8)markIfUnoccupied(allSquares.find(x => x.id === `h${right}`))
                     break
+                }
                 case 'h':
                     break
             }
