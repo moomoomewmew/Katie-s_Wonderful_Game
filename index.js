@@ -41,13 +41,13 @@ const moveRed = (e) => {
     }   else if (e.target.classList.contains('possibilities')) {
         activeRed.classList.remove('red')
         activeRed.classList.remove('active-red')
-            e.target.classList.add('red')
-            player = 'black-player'
-            console.log(player)
-            allSquares.forEach((square) => {
-                square.classList.remove('possibilities')
-            })
-        }    
+        e.target.classList.add('red')
+        player = 'black-player'
+        console.log(player)
+        allSquares.forEach((square) => {
+            square.classList.remove('possibilities')
+        })
+    } 
 }
 
 const selectBlack = (e) => {
@@ -83,14 +83,21 @@ const moveBlack = (e) => {
 
 const movementLimitationsRed = (activeRed) => {
     console.log(activeRed)
+    const row = activeRed.id[0]
+    const column = parseInt(activeRed.id[1])
     if (player === 'red-player'){
-        switch (activeRed.id[1]) {
-          case '1':
-          break
-          case '2' || '3' || '4' || '5' || '6' || '7':
-              let left = parseInt(activeRed.id[1]) + 1
-              let right = parseInt(activeRed.id[1]) - 1
-            switch (activeRed.id[0]) {
+        switch (column) {
+            case 1:
+                break
+            case 2:
+            case 3:
+            case 4:
+            case 5:
+            case 6:
+            case 7: 
+              let left = column + 1
+              let right = column - 1
+            switch (row) {
                 case 'a':
                 break
                 case 'b':
@@ -110,6 +117,7 @@ const movementLimitationsRed = (activeRed) => {
                     allSquares.find(x => x.id === `d${right}`).classList.add('possibilities')
                 break
                 case 'f':
+                    console.log(row, column)
                     allSquares.find(x => x.id === `e${left}`).classList.add('possibilities') 
                     allSquares.find(x => x.id === `e${right}`).classList.add('possibilities')
                 break
@@ -124,7 +132,7 @@ const movementLimitationsRed = (activeRed) => {
                 break
             }
         break    
-        case '8':
+        case 8:
         break
         }
     }
@@ -132,14 +140,21 @@ const movementLimitationsRed = (activeRed) => {
 
 const movementLimitationsBlack = (activeBlack => {
     console.log(activeBlack)
+    const row = activeBlack.id[0]
+    const column = parseInt(activeBlack.id[1])
     if (player === 'black-player') {
-        switch (activeBlack.id[1]) {
-          case '1':
-          break
-          case '2' || '3' || '4' || '5' || '6' || '7':
-              let left = parseInt(activeBlack.id[1]) - 1
-              let right = parseInt(activeBlack.id[1]) + 1
-            switch (activeBlack.id[0]) {
+        switch (column) {
+            case 1:
+                break
+            case 2:
+            case 3:
+            case 4:
+            case 5:
+            case 6:
+            case 7: 
+              let left = column - 1
+              let right = column + 1
+            switch (row) {
                 case 'a':
                     allSquares.find(x => x.id === `b${left}`).classList.add('possibilities') 
                     allSquares.find(x => x.id === `b${right}`).classList.add('possibilities') 
@@ -174,7 +189,7 @@ const movementLimitationsBlack = (activeBlack => {
                 break
             }
         break    
-        case '8':
+        case 8:
         break
         }
     }
@@ -188,7 +203,6 @@ allSquares.forEach (currentSquare => {
             reSelectRed(e)
             selectRed(e)
         } else if (player === 'red-player' && e.target.classList.contains('light-square')) {
-            console.log('move red')
             moveRed(e)
         } else if (player === 'black-player' && e.target.classList.contains('black')) {
             reSelectBlack(e)
