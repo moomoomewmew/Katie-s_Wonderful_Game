@@ -101,33 +101,33 @@ const movementLimitationsRed = (activeRed) => {
                 case 'a':
                 break
                 case 'b':
-                    allSquares.find(x => x.id === `a${left}`).classList.add('possibilities') 
-                    allSquares.find(x => x.id === `a${right}`).classList.add('possibilities') 
+                    markIfUnoccupied(allSquares.find(x => x.id === `a${left}`)) 
+                    markIfUnoccupied(allSquares.find(x => x.id === `a${right}`))
                 break
                 case 'c':
-                    allSquares.find(x => x.id === `b${left}`).classList.add('possibilities') 
-                    allSquares.find(x => x.id === `b${right}`).classList.add('possibilities')
+                    markIfUnoccupied(allSquares.find(x => x.id === `b${left}`)) 
+                    markIfUnoccupied(allSquares.find(x => x.id === `b${right}`))
                 break
                 case 'd':
-                    allSquares.find(x => x.id === `c${left}`).classList.add('possibilities') 
-                    allSquares.find(x => x.id === `c${right}`).classList.add('possibilities')
+                    markIfUnoccupied(allSquares.find(x => x.id === `c${left}`)) 
+                    markIfUnoccupied(allSquares.find(x => x.id === `c${right}`))
                 break
                 case 'e':
-                    allSquares.find(x => x.id === `d${left}`).classList.add('possibilities') 
-                    allSquares.find(x => x.id === `d${right}`).classList.add('possibilities')
+                    markIfUnoccupied(allSquares.find(x => x.id === `d${left}`)) 
+                    markIfUnoccupied(allSquares.find(x => x.id === `d${right}`))
                 break
                 case 'f':
                     console.log(row, column)
-                    allSquares.find(x => x.id === `e${left}`).classList.add('possibilities') 
-                    allSquares.find(x => x.id === `e${right}`).classList.add('possibilities')
+                    markIfUnoccupied(allSquares.find(x => x.id === `e${left}`)) 
+                    markIfUnoccupied(allSquares.find(x => x.id === `e${right}`))
                 break
                 case 'g':
-                    allSquares.find(x => x.id === `f${left}`).classList.add('possibilities') 
-                    allSquares.find(x => x.id === `f${right}`).classList.add('possibilities')
+                    markIfUnoccupied(allSquares.find(x => x.id === `f${left}`)) 
+                    markIfUnoccupied(allSquares.find(x => x.id === `f${right}`))
                 break
                 case 'h':
-                    allSquares.find(x => x.id === `g${left}`).classList.add('possibilities') 
-                    allSquares.find(x => x.id === `g${right}`).classList.add('possibilities')
+                    markIfUnoccupied(allSquares.find(x => x.id === `g${left}`)) 
+                    markIfUnoccupied(allSquares.find(x => x.id === `g${right}`))
 
                 break
             }
@@ -137,6 +137,12 @@ const movementLimitationsRed = (activeRed) => {
         }
     }
 }
+
+const markIfUnoccupied = (element) => {
+    if (!element.classList.contains('red') && !element.classList.contains('black')){
+        element.classList.add('possibilities')
+    }
+} 
 
 const movementLimitationsBlack = (activeBlack => {
     console.log(activeBlack)
@@ -156,34 +162,33 @@ const movementLimitationsBlack = (activeBlack => {
               let right = column + 1
             switch (row) {
                 case 'a':
-                    allSquares.find(x => x.id === `b${left}`).classList.add('possibilities') 
-                    allSquares.find(x => x.id === `b${right}`).classList.add('possibilities') 
-
+                    markIfUnoccupied(allSquares.find(x => x.id === `b${left}`)) 
+                    markIfUnoccupied(allSquares.find(x => x.id === `b${right}`))
                 break
                 case 'b':
-                    allSquares.find(x => x.id === `c${left}`).classList.add('possibilities') 
-                    allSquares.find(x => x.id === `c${right}`).classList.add('possibilities') 
+                    markIfUnoccupied(allSquares.find(x => x.id === `c${left}`)) 
+                    markIfUnoccupied(allSquares.find(x => x.id === `c${right}`))
                 break
                 case 'c':
-                    allSquares.find(x => x.id === `d${left}`).classList.add('possibilities') 
-                    allSquares.find(x => x.id === `d${right}`).classList.add('possibilities')
+                    markIfUnoccupied(allSquares.find(x => x.id === `d${left}`)) 
+                    markIfUnoccupied(allSquares.find(x => x.id === `d${right}`))
                 break
                 case 'd':
-                    allSquares.find(x => x.id === `e${left}`).classList.add('possibilities') 
-                    allSquares.find(x => x.id === `e${right}`).classList.add('possibilities')
+                    markIfUnoccupied(allSquares.find(x => x.id === `e${left}`)) 
+                    markIfUnoccupied(allSquares.find(x => x.id === `e${right}`))
                 break
                 case 'e':
-                    allSquares.find(x => x.id === `f${left}`).classList.add('possibilities') 
-                    allSquares.find(x => x.id === `f${right}`).classList.add('possibilities')
+                    markIfUnoccupied(allSquares.find(x => x.id === `f${left}`)) 
+                    markIfUnoccupied(allSquares.find(x => x.id === `f${right}`))
                 break
                 case 'f':
-                    allSquares.find(x => x.id === `g${left}`).classList.add('possibilities') 
-                    allSquares.find(x => x.id === `g${right}`).classList.add('possibilities')
+                    markIfUnoccupied(allSquares.find(x => x.id === `g${left}`)) 
+                    markIfUnoccupied(allSquares.find(x => x.id === `g${right}`))
                     console.log('still working!!')
                 break
                 case 'g':
-                    allSquares.find(x => x.id === `h${left}`).classList.add('possibilities') 
-                    allSquares.find(x => x.id === `h${right}`).classList.add('possibilities')
+                    markIfUnoccupied(allSquares.find(x => x.id === `h${left}`)) 
+                    markIfUnoccupied(allSquares.find(x => x.id === `h${right}`))
                 break
                 case 'h':
                 break
