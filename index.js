@@ -294,3 +294,12 @@ allSquares.forEach (currentSquare => {
         }
     })
 })
+
+/*==============winning conditions===============*/
+const rowR = reds.id[0]
+const rowB = blacks.id[0]
+if (row === "a") {
+    console.log("Red Wins!")
+} else if (row === "h") {
+    console.log("Black Wins!")
+}

@@ -25,11 +25,20 @@ Rules:
 3. Enjoy
 
 ***
+## Things to improve upon
+***
+1. I need to place pictures in the README file.
+2. I need to work on the winning conditions, as they are just notes at this point.
+3. This game needs a replay option.
+4. The game logic could be expanded with the "king" rule.
+5. The new winning conditions after adding the king rule would be that there is only 1 color token left on the board.
+
+***
 ## Credits
 ***
 
 Zee Moss
 Daniel Connelly
-Marvel
-Christopher Bowers
-Ben Manning 
+Marvel Johnson
+Ben Manning
+
