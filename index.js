@@ -92,6 +92,9 @@ const occupied = (element) => {
 }
 
 const movementLimitationsRed = (activeRed) => {
+    allSquares.forEach((element) => {
+        if (element.classList.contains('possibilities')) element.classList.remove('possibilities')
+    })
     console.log(activeRed)
     const row = activeRed.id[0]
     const column = parseInt(activeRed.id[1])
@@ -100,43 +103,73 @@ const movementLimitationsRed = (activeRed) => {
               let right = column + 1
             switch (row) {
                 case 'a':
-                
                     break
                 case 'b':
                     if (column > 1) markIfUnoccupied(allSquares.find(x => x.id === `a${left}`)) 
                     if (column < 8) markIfUnoccupied(allSquares.find(x => x.id === `a${right}`))
                     break
-                case 'c':
-                    if (column > 1)markIfUnoccupied(allSquares.find(x => x.id === `b${left}`)) 
-                    if (column < 8)markIfUnoccupied(allSquares.find(x => x.id === `b${right}`))
+                case 'c':{
+                    let leftDiagonal = allSquares.find(x => x.id === `b${left}`)
+                    let rightDiagonal = allSquares.find(x => x.id === `b${right}`)
+                    if (column > 1)markIfUnoccupied(leftDiagonal)
+                    if (column < 8)markIfUnoccupied(rightDiagonal)
+                    if (column > 2 && occupied(leftDiagonal)) markIfUnoccupied(allSquares.find(x => x.id === `a${left-1}`))
+                    if (column < 7 && occupied(rightDiagonal)) markIfUnoccupied(allSquares.find(x => x.id === `a${right+1}`))
                     break
-                case 'd':
-                    if (column > 1)markIfUnoccupied(allSquares.find(x => x.id === `c${left}`)) 
-                    if (column < 8)markIfUnoccupied(allSquares.find(x => x.id === `c${right}`))
+                }
+                case 'd': {
+                    let leftDiagonal = allSquares.find(x => x.id === `c${left}`)
+                    let rightDiagonal = allSquares.find(x => x.id === `c${right}`)
+                    if (column > 1)markIfUnoccupied(leftDiagonal)
+                    if (column < 8)markIfUnoccupied(rightDiagonal)
+                    if (column > 2 && occupied(leftDiagonal)) markIfUnoccupied(allSquares.find(x => x.id === `b${left-1}`))
+                    if (column < 7 && occupied(rightDiagonal)) markIfUnoccupied(allSquares.find(x => x.id === `b${right+1}`))
                     break
-                case 'e':
-                    if (column > 1)markIfUnoccupied(allSquares.find(x => x.id === `d${left}`)) 
-                    if (column < 8)markIfUnoccupied(allSquares.find(x => x.id === `d${right}`))
+                }
+                case 'e': {
+                    let leftDiagonal = allSquares.find(x => x.id === `d${left}`)
+                    let rightDiagonal = allSquares.find(x => x.id === `d${right}`)
+                    if (column > 1)markIfUnoccupied(leftDiagonal)
+                    if (column < 8)markIfUnoccupied(rightDiagonal)
+                    if (column > 2 && occupied(leftDiagonal)) markIfUnoccupied(allSquares.find(x => x.id === `c${left-1}`))
+                    if (column < 7 && occupied(rightDiagonal)) markIfUnoccupied(allSquares.find(x => x.id === `c${right+1}`))
                     break
-                case 'f':
-                    console.log(row, column)
-                    if (column > 1)markIfUnoccupied(allSquares.find(x => x.id === `e${left}`)) 
-                    if (column < 8)markIfUnoccupied(allSquares.find(x => x.id === `e${right}`))
+                }
+                case 'f':{
+                    let leftDiagonal = allSquares.find(x => x.id === `e${left}`)
+                    let rightDiagonal = allSquares.find(x => x.id === `e${right}`)
+                    if (column > 1)markIfUnoccupied(leftDiagonal)
+                    if (column < 8)markIfUnoccupied(rightDiagonal)
+                    if (column > 2 && occupied(leftDiagonal)) markIfUnoccupied(allSquares.find(x => x.id === `d${left-1}`))
+                    if (column < 7 && occupied(rightDiagonal)) markIfUnoccupied(allSquares.find(x => x.id === `d${right+1}`))
                     break
-                case 'g':
-                    if (column > 1)markIfUnoccupied(allSquares.find(x => x.id === `f${left}`)) 
-                    if (column < 8)markIfUnoccupied(allSquares.find(x => x.id === `f${right}`))
+                }
+                case 'g':{
+                    let leftDiagonal = allSquares.find(x => x.id === `f${left}`)
+                    let rightDiagonal = allSquares.find(x => x.id === `f${right}`)
+                    if (column > 1)markIfUnoccupied(leftDiagonal)
+                    if (column < 8)markIfUnoccupied(rightDiagonal)
+                    if (column > 2 && occupied(leftDiagonal)) markIfUnoccupied(allSquares.find(x => x.id === `e${left-1}`))
+                    if (column < 7 && occupied(rightDiagonal)) markIfUnoccupied(allSquares.find(x => x.id === `e${right+1}`))
                     break
-                case 'h':
-                    if (column > 1)markIfUnoccupied(allSquares.find(x => x.id === `g${left}`)) 
-                    if (column < 8)markIfUnoccupied(allSquares.find(x => x.id === `g${right}`))
+                }
+                case 'h':{
+                    let leftDiagonal = allSquares.find(x => x.id === `g${left}`)
+                    let rightDiagonal = allSquares.find(x => x.id === `g${right}`)
+                    if (column > 1)markIfUnoccupied(leftDiagonal)
+                    if (column < 8)markIfUnoccupied(rightDiagonal)
+                    if (column > 2 && occupied(leftDiagonal)) markIfUnoccupied(allSquares.find(x => x.id === `f${left-1}`))
+                    if (column < 7 && occupied(rightDiagonal)) markIfUnoccupied(allSquares.find(x => x.id === `f${right+1}`))
                     break
+                }
             }
     }
 }
 
 const movementLimitationsBlack = (activeBlack => {
-    console.log(activeBlack)
+    allSquares.forEach((element) => {
+        if (element.classList.contains('possibilities')) element.classList.remove('possibilities')
+    })
     const row = activeBlack.id[0]
     const column = parseInt(activeBlack.id[1])
     if (player === 'black-player') {
@@ -208,40 +241,7 @@ const movementLimitationsBlack = (activeBlack => {
     }
 })
 
- 
-
-// const jumpIfOccupiedRed = () => {
-//     const row = activeRed.id[0]
-//     const column = parseInt(activeRed.id[1])
-//     if (player === 'red-player'){
-//             let left = column - 1
-//             let right = column + 1
-//         switch (row) {
-//             case 'a':
-//                 break
-//             case 'b':
-//                 // if (column > 1 && (activeRed + 1 === occupied))
-//                 // if (column < 8 && (activeRed - 1 === occupied))
-//                 break 
-//             case 'c':
-//                 break
-//             case 'c':
-//                 break
-//             case 'e':
-//                 break
-//             case 'f':
-//                 if (column > 1 && )
-//                 if (column < 8 && )
-//                 break
-//             case 'g':
-//                 break
-//             case 'h':
-//                 break
-//         }
-//     }
-// }
-
-/*==============logic for gameplay===============*/
+ /*==============logic for gameplay===============*/
 
 allSquares.forEach (currentSquare => {
     currentSquare.addEventListener('click', (e) =>{
